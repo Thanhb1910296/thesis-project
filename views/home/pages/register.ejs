@@ -1,0 +1,94 @@
+<style>
+    .bordert{
+        border-top: 1px solid #aaa;
+        position: relative;
+    }
+    .bordert img{
+        margin: 25px 10px 0;
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+        /* position: relative; */
+    }
+    .bordert:after{
+        content: "or connect with";
+        position:absolute;
+        top: -13px;
+        left: 36%;
+        background-color: beige;
+        padding: 0 10px;
+    }
+    .flex-row {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+
+<!--============= PAGE-COVER =============-->
+<section class="page-cover" id="cover-login" style="background-color: black;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="page-title"> Trang đăng nhập</h1>
+                <ul class="breadcrumb">
+                    <li><a href="/"> Trang chủ </a></li>
+                    <li class="active"> Đăng ký </li>
+                </ul>
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end page-cover -->
+
+
+<!--===== INNERPAGE-WRAPPER ====-->
+<section class="innerpage-wrapper">
+    <div id="login" class="innerpage-section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                
+                    <div class="flex-content">
+                        <div class="custom-form custom-form-fields">
+                            <h3> Đăng ký </h3>
+
+                            <form method="post" action="/register">
+                                <label for=""> Tên đầy đủ của bạn </label>
+                                <div class="form-group">
+                                     <input name="fullname" type="text" class="form-control" placeholder=""  required/>
+                                     <span><i class="fa fa-user"></i></span>
+                                </div>
+
+                                <label for=""> Tài khoản hoặc Số điện thoại </label>
+                                <div class="form-group">
+                                     <input name="username" type="text" class="form-control" placeholder=""  required/>
+                                     <span><i class="fa fa-user"></i></span>
+                                </div>
+                                
+                                <label for=""> Mật khẩu </label>
+                                <div class="form-group">
+                                     <input name="password" type="password" class="form-control" placeholder=""  required/>
+                                     <span><i class="fa fa-lock"></i></span>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-orange btn-block"> Đăng ký </button>
+                            </form>
+                        </div><!-- end custom-form -->
+                        
+                        <div class="flex-content-img custom-form-img">
+                            <img src="upload/login-background.png" class="img-responsive" alt="registration-img" />
+                        </div><!-- end custom-form-img -->
+                    </div><!-- end form-content -->
+                    
+                </div><!-- end columns -->
+            </div><!-- end row -->
+        </div><!-- end container -->         
+    </div><!-- end login -->
+</section><!-- end innerpage-wrapper -->
+
+<!-- Page Scripts Starts -->
+<script src="home/js/jquery.min.js"></script>
+<script src="home/js/bootstrap.min.js"></script>
+<script src="home/js/custom-navigation.js"></script>
+<!-- Page Scripts Ends -->
+</body>

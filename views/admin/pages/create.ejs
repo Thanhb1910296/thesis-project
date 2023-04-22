@@ -1,90 +1,219 @@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .selectedBanner {
+            margin-bottom: 20px;
+        }
+    </style>
+    <div class="container-fluid">
 
-<div class="container-fluid">
+        <!-- Page Heading -->
+        <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="col-md-6 mx-auto my-4">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group" style="margin-top: 15px">
+                        <label> Tên khách sạn </label>
+                        <input type="text" class="form-control" placeholder="" name="hotel_name">
+                    </div>
 
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-    <div class="d-flex justify-content-center align-items-center">
-        <div class="col-md-6 mx-auto my-5">
-            <form method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                  <label> Name </label>
-                  <input type="text" class="form-control" placeholder="" name="hotel_name">
-                </div>
-                <!-- <div class="form-group">
-                  <label> Slug </label>
-                  <input type="text" class="form-control" placeholder="" name="hotel_slug">
-                </div> -->
-                <div class="form-group">
-                  <label> Star number </label>
-                  <input type="text" class="form-control" placeholder="" name="hotel_star_number">
-                </div>
-                <div class="form-group">
-                  <label> Address </label>
-                  <input type="text" class="form-control" placeholder="" name="hotel_address">
-                </div>
-                <div class="form-group">
-                  <label> Province </label>
-                  <input type="text" class="form-control" placeholder="" name="hotel_province">
-                </div>
-                <div class="form-group">
-                  <label> Images </label>
-                  <input type="file" class="form-control" placeholder="" name="hotel_images" multiple>
-                </div>
-                <div class="form-group">
-                  <label> Price </label>
-                  <input type="text" class="form-control" placeholder="" name="hotel_price">
-                </div>
-                <div class="form-group">
-                  <label> Type</label>
-                  <input type="text" class="form-control" placeholder="" name="hotel_type">
-                </div>
-                <!-- <div class="form-group">
-                  <label> </label>
-                  <input type="text" class="form-control" placeholder="">
-                </div> -->
-                <!-- <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div> -->
-                <button type="submit" class="btn btn-primary"> Create </button>
-            </form>
+                    <!-- <div class="form-group">
+                    <label> Slug </label>
+                    <input type="text" class="form-control" placeholder="" name="hotel_slug">
+                    </div> -->
+
+                    <div class="form-group">
+                        <label> Số sao </label>
+                        <input type="text" class="form-control" placeholder="" name="hotel_star_number">
+                    </div>
+                    <!-- <div class="form-group">
+                    <label> Address </label>
+                    <input type="text" class="form-control" placeholder="" name="hotel_address">
+                    </div> -->
+                    <!-- <div class="form-group">
+                    <label> Province </label>
+                    <input type="text" class="form-control" placeholder="" name="hotel_province">
+                    </div> -->
+
+                    <div class="form-group">
+                        <label style="margin-right: 50px"> Thành phố </label>
+                        <select name="hotel_province" class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm">
+                            <option value="" selected> Chọn tỉnh thành </option>           
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label style="margin-right: 10px"> Huyện / Thị trấn </label>     
+                        <select name="hotel_district" class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm">
+                            <option value="" selected>Chọn quận huyện</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label style="margin-right: 39px"> Phường / Xã </label>
+                        <select name="hotel_ward" class="form-select form-select-sm" id="ward" aria-label=".form-select-sm">
+                            <option value="" selected>Chọn phường xã</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label> Số nhà / Đường / Hẻm / Ngõ </label>
+                        <input type="text" class="form-control" placeholder="" name="hotel_address">
+                    </div>
+
+                    <div class="form-group">
+                        <label> Hình ảnh </label><br>
+                        <input id="file-upload" type="file" class="select_file" placeholder="" name="hotel_images" multiple="multiple">
+                    </div>
+                    <div id="selected-banner" multiple="multiple"></div>
+
+                    <!-- <div class="form-group">
+                        <label> Mức gía </label>
+                        <input type="text" class="form-control" placeholder="" name="hotel_price">
+                    </div> -->
+
+                    <div id="selecte-type" class="form-group">
+                        <label> Loại </label>
+                        <select name="hotel_type" class="form-select">
+                            <option value="hotel" selected> Khách sạn </option>
+                            <option value="apartment" selected> Căn hộ </option>
+                            <option value="resort" selected> Khu nghỉ mát </option>
+                        </select>
+                        <!-- <input type="text" class="form-control" placeholder="" name="hotel_type"> -->
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="margin-bottom: 60px"> Create </button>
+                </form>
+            </div>
         </div>
-    </div>
-    <!-- <div class="d-flex justify-content-center align-items-center">
-        <div class="col-md-6 mx-auto my-5">
-            <form>
-                <div class="form-group">
-                  <label>Name</label>
-                  <input type="text" class="form-control" placeholder="Name">
-                </div>
-                <div class="form-group">
-                  <label> </label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-                <button type="submit" class="btn btn-primary"> Create </button>
-            </form>
-        </div>
-    </div> -->
-    <!-- <div class="d-flex justify-content-center align-items-center">
-        <div class="col-md-6 mx-auto my-5">
-            <form>
-                <div class="form-group d-block">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
-        </div>
-    </div> -->
+        <!-- <div class="d-flex justify-content-center align-items-center">
+            <div class="col-md-6 mx-auto my-5">
+                <form>
+                    <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                    <label> </label>
+                    <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <button type="submit" class="btn btn-primary"> Create </button>
+                </form>
+            </div>
+        </div> -->
+        <!-- <div class="d-flex justify-content-center align-items-center">
+            <div class="col-md-6 mx-auto my-5">
+                <form>
+                    <div class="form-group d-block">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div> -->
     
-</div>
-<!-- /.container-fluid -->
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+        <script>
+            var citis = document.getElementById("city");
+            var districts = document.getElementById("district");
+            var wards = document.getElementById("ward");
+
+            var Parameter = {
+                url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json", 
+                method: "GET", 
+                responseType: "application/json", 
+            };
+
+            var promise = axios(Parameter);
+
+            promise.then(function (result) {
+                renderCity(result.data);
+            });
+        
+            function renderCity(data) {
+                for (const x of data) {
+                    citis.options[citis.options.length] = new Option(x.Name, x.Name);
+                }
+                citis.onchange = function () {
+                    district.length = 1;
+                    ward.length = 1;
+                    if(this.value != ""){
+                        const result = data.filter(n => n.Name === this.value);
+
+                        for (const k of result[0].Districts) {
+                            district.options[district.options.length] = new Option(k.Name, k.id);
+                        }
+                    }
+                };
+                district.onchange = function () {
+                    ward.length = 1;
+                    const dataCity = data.filter((n) => n.Name === citis.value);
+                    if (this.value != "") {
+                        const dataWards = dataCity[0].Districts.filter(n => n.Name === this.value)[0].Wards;
+            
+                        for (const w of dataWards) {
+                        wards.options[wards.options.length] = new Option(w.Name, w.Name);
+                        }
+                    }
+                };
+            }
+            // function getOption() {
+            //     selectElement = document.querySelector('form-select-sm');
+            //     output = selectElement.value;
+            //     document.querySelector('hotel_city').textContent = output;
+            // }
+        </script>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+            crossorigin="anonymous">
+        </script>
+        <script language="javascript" type="text/javascript">
+            window.onload = function () {
+                var fileUpload = document.getElementById("file-upload");
+                fileUpload.onchange = function () {
+                    if (typeof (FileReader) != "undefined") {
+                        var dvPreview = document.getElementById("selected-banner");
+                        dvPreview.innerHTML = "";
+                        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                        for (var i = 0; i < fileUpload.files.length; i++) {
+                            var file = fileUpload.files[i];
+                            if (regex.test(file.name.toLowerCase())) {
+                                var reader = new FileReader();
+                                reader.onload = function (e) {
+                                    var img = document.createElement("IMG");
+                                    img.setAttribute('height', 200); // 👈️ height in px
+                                    img.setAttribute('width', 200);
+                                    img.src = e.target.result;
+                                    dvPreview.appendChild(img);
+                                    img.style.marginRight = "10px";
+                                    img.style.marginBottom = "10px";
+                                }
+                                reader.readAsDataURL(file);
+                            } else {
+                                alert(file.name + " is not a valid image file.");
+                                dvPreview.innerHTML = "";
+                                return false;
+                            }
+                        }
+                    } else {
+                        alert("This browser does not support HTML5 FileReader.");
+                    }
+                }
+            };
+            document.getElementById("selecte-type").style.marginTop = "40px";
+        </script>
+    </div>
+    <!-- /.container-fluid -->

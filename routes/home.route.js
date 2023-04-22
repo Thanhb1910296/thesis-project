@@ -10,12 +10,16 @@ homeRouter.get("/", async (req, res) => {
     });
 });
 homeRouter.get("/login", async (req, res) => {
-    const imagePath = './images/1680566961445-39639.jpg';
+    // const imagePath = './images/1680566961445-39639.jpg';
     res.render('home/index', {
         page: "login",
         // imagePath,
     });
 });
-
+homeRouter.get("/register", async (req, res) => {
+    res.render('home/index', {
+        page: "register",
+    });
+});
 
 module.exports = homeRouter;

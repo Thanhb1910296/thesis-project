@@ -6,6 +6,9 @@ const User = require("../models/user");
 const { Hotel } = require("../models/hotel");
 
 const multer  = require('multer');
+
+
+
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, 'public/images')
@@ -28,25 +31,32 @@ adminRouter.get("/create", async (req, res) => {
     });
 });
 
-adminRouter.post("/create", upload.array('hotel_images', 12), function (req, res) {
+adminRouter.post("/create", upload.array('hotel_images'), function (req, res) {
     
     let name = req.body.hotel_name,
     // slug = req.body.hotel_slug, 
     star_number = req.body.hotel_star_number, 
-    address = req.body.hotel_address, 
+    // address = req.body.hotel_address,
+    address =req.body.hotel_address + ", " + req.body.hotel_ward + ", " + req.body.hotel_district + ", " + req.body.hotel_province,
     // province = req.body.hotel_province, 
     images = [],
-    //files = [],
-    price = req.body.hotel_price, 
+    // files = [],
+    // price = req.body.hotel_price, 
     type = req.body.hotel_type;
 
-    for(i=0; i< upload.array.length; i++){
+    let i, available = 0;
+    for(i=0; i < 6; i++){
         images[i] =  req.files[i].filename;
         // files[i] = req.files[i].path;
-        // console.log(images[i]);
+        console.log(images[i]);
+        available = i + 1;
+        if(req.files[available] == null){
+            break;
+        }
+        // upload.array.length++;
         // console.log(files[i]);
     };
-    
+
     let hotel = new Hotel({
         name, 
         // slug, 
@@ -55,7 +65,7 @@ adminRouter.post("/create", upload.array('hotel_images', 12), function (req, res
         // province, 
         images,
         // files,
-        price, 
+        // price, 
         type,
     });
 
@@ -69,6 +79,7 @@ adminRouter.post("/create", upload.array('hotel_images', 12), function (req, res
         }
     });
 
+    // console.log(hotel);
     res.redirect("/create");
 });
 

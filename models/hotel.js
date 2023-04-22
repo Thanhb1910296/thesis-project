@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const ratingSchema = require("./rating");
+// const commentSchema = require("./comment");
 
 const hotelSchema = mongoose.Schema({
     name: {
@@ -31,14 +33,15 @@ const hotelSchema = mongoose.Schema({
     //       type: String,
     //     }
     // ],
-    price: {
-        type: Number,
-        trim: true
-    },
+    // price: {
+    //     type: Number,
+    //     trim: true
+    // },
     type: {
         type: String,
         trim: true
-    }
+    },
+    ratings: [ratingSchema],
 });
 
 const Hotel = mongoose.model("Hotel", hotelSchema);

@@ -73,11 +73,11 @@ app.listen(port, () => {
 // }); 
 
 // const hotelRoute = require("./src/routes/hotel.route");
-// const authRouter = require("./src/routes/auth.router");
+const authRouter = require("./routes/auth.route");
 const adminRouter = require("./routes/admin.route");
 const homeRouter = require("./routes/home.route");
 // app.use(express.json());
 // app.use(hotelRoute);
-// app.use(authRouter);
+app.use(authRouter);
 app.use(adminRouter);
 app.use(homeRouter);
